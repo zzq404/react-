@@ -24,7 +24,7 @@ const routers=[
         exact:false,
         name:'测试3',
         path:'/test3',
-        show:false,
+        show:true,
         component:Test2
     }
 ]
