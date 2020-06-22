@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router , Route} from 'react-router-dom';
+import {BrowserRouter as Router , Route,HashRouter } from 'react-router-dom';
 import { Modal } from 'antd';
 import Home from './commponent/home'
 import Login from './commponent/login'
@@ -37,11 +37,11 @@ export default class App extends React.Component{
   }
   render(){
         return(
-          <Router>
+          <HashRouter>
             {
               window.location.pathname !== "/login" && localStorage.getItem("isLogin") ? <Route path="/" component={Home}></Route> : <Route path="/login" component={Login}></Route>
             }
-          </Router>
+          </HashRouter>
         )
     }
 }
