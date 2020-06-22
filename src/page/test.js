@@ -1,5 +1,4 @@
 import React from 'react'
-import { test,getArtTimeInfo } from "../api/ZZQ"
 
 export default class Test extends React.Component {
     constructor(props) {
