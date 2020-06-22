@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-admin"]=this["webpackJsonpreact-admin"]||[]).push([[14],{380:function(a,i,p){a.exports=p.p+"static/media/login-bg.0899ffa6.jpg"}}]);
-//# sourceMappingURL=14.2b842b65.chunk.js.map
