@@ -1,5 +1,4 @@
 import React from 'react'
-import { test,getArtTimeInfo } from "../api/ZZQ"
 
 export default class Test extends React.Component {
     constructor(props) {
@@ -12,9 +11,9 @@ export default class Test extends React.Component {
         this.props.history.push({pathname:'/test2',query:{content:value}})
     }
     componentWillMount(){
-        getArtTimeInfo({id:5}).then(res=>{
-            console.log(res)
-        })
+        // getArtTimeInfo({id:5}).then(res=>{
+        //     console.log(res)
+        // })
     }
     render() {
         return (

@@ -3,10 +3,10 @@ import {BrowserRouter as Router , Route,Link} from 'react-router-dom';
 import { Layout, Menu, Breadcrumb,Dropdown,Spin } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 import './home.css'
-import Logo from "../assets/yiduoduo.png"
+import Logo from "../logo.svg"
 import * as Icon from '@ant-design/icons';
 import Routers from '../routers'
-console.log(Routers)
+
 const { SubMenu } = Menu;
 const { Header, Sider, Content } = Layout;
 
@@ -39,6 +39,32 @@ export default class Home extends React.Component{
     //   console.log(this.state.content)
     // })
   }
+  fillterSidebar=()=>{
+    return Routers.map((item,index)=>{
+      if(item.show){
+        if(item.child && item.child.length > 0 && this.isDrop(item.child)){
+          return (
+            <SubMenu key={item.path} icon={ React.createElement(Icon['UserOutlined']) } title={item.name}>
+              {
+                item.child.map((ele,i)=>{
+                  if(ele.show){
+                    return ele.icon ?<Menu.Item key={ele.path} icon={ React.createElement(Icon[ele.icon]) }><Link to={ele.path}>{ele.name}</Link></Menu.Item> : <Menu.Item key={ele.path}><Link to={ele.path}>{ele.name}</Link></Menu.Item>
+                  }
+                })
+              }
+            </SubMenu>
+          )
+        }else{
+          return item.icon ?<Menu.Item key={item.path} icon={ React.createElement(Icon[item.icon]) }><Link to={item.path}>{item.name}</Link></Menu.Item> : <Menu.Item key={item.path}><Link to={item.path}>{item.name}</Link></Menu.Item>
+        }
+      }
+    })
+  }
+  isDrop=(children)=>{
+    return children.some((ele)=>{
+      return ele.show == true
+    })
+  }
   outLogin=()=>{
     localStorage.removeItem("isLogin")
     window.location.pathname ="login"
@@ -56,7 +82,7 @@ export default class Home extends React.Component{
               <Header className="header">
                 <div className="logo">
                   <img onClick={this.toggle} className="logoImg" src={Logo} alt=""/>
-                  <span className="title">壹哆哆管理后台</span>
+                  <span className="title">管理后台</span>
                 </div>
                 <div className="userInfo">
                   {/* <Avatar size="large" style={{backgroundColor: '#87d068'}} icon={ React.createElement(Icon['UserOutlined']) }/> */}
@@ -75,26 +101,7 @@ export default class Home extends React.Component{
                     defaultSelectedKeys={[`${this.state.pathname}`]}
                     style={{ height: '100%', borderRight: 0 }}
                   >
-                    {
-                      Routers.map((item,index)=>{
-                        if(item.show){
-                          if(item.children){
-                            return (
-                              <SubMenu key={item.path} icon={ React.createElement(Icon['UserOutlined']) } title={item.name}>
-                                {
-                                  item.children.map((ele,i)=>{
-                                    return ele.icon ?<Menu.Item key={ele.path} icon={ React.createElement(Icon[ele.icon]) }><Link to={ele.path}>{ele.name}</Link></Menu.Item> : <Menu.Item key={ele.path}><Link to={ele.path}>{ele.name}</Link></Menu.Item>
-                                  })
-                                }
-                              </SubMenu>
-                            )
-                          }else{
-                            return item.icon ?<Menu.Item key={item.path} icon={ React.createElement(Icon[item.icon]) }><Link to={item.path}>{item.name}</Link></Menu.Item> : <Menu.Item key={item.path}><Link to={item.path}>{item.name}</Link></Menu.Item>
-                          }
-                        }
-                      })
-                    }
-
+                    {this.fillterSidebar()}
                   </Menu>
                 </Sider>
                 <Layout style={{ padding: '0 12px 12px' }}>

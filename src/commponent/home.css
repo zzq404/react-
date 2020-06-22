@@ -16,6 +16,10 @@
   height:45px;
   margin-right: 12px;
   cursor: pointer;
+  transition: .3s;
+}
+.logo .logoImg:hover{
+  transform: scale(1.4);
 }
 .logo .title{
   font-size: 22px;
