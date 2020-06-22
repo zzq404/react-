@@ -1,2 +1,0 @@
-(this["webpackJsonpmy-app"]=this["webpackJsonpmy-app"]||[]).push([[6],{204:function(t,o,e){"use strict";e.r(o),e.d(o,"baseUrl",(function(){return p}));var p="";switch(p="http://test.pre.fableedu.com/",window.location.origin){case"http://apptest.yidodo.com":p="http://test.art.fableedu.com/";break;case"https://h5pre.yidodo.com":p="https://test.pre.fableedu.com/";break;case"https://www.yidodo.com":p="https://api.yidodo.com/";break;case"https://betawww.yidodo.com":p="https://betaapi.yidodo.com/"}}}]);
-//# sourceMappingURL=6.23e03066.chunk.js.map
