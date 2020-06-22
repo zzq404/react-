@@ -1,5 +1,5 @@
 import React,{ Suspense } from 'react';
-import {BrowserRouter as Router , Route,Link} from 'react-router-dom';
+import {BrowserRouter as Router , Route,Link,HashRouter} from 'react-router-dom';
 import { Layout, Menu, Breadcrumb,Dropdown,Spin } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 import './home.css'
@@ -77,7 +77,7 @@ export default class Home extends React.Component{
   render(){
         return(
         <Spin spinning={false}>
-          <Router>
+          <HashRouter>
             <Layout id="body" >
               <Header className="header">
                 <div className="logo">
@@ -129,7 +129,7 @@ export default class Home extends React.Component{
                 </Layout>
               </Layout>
             </Layout>
-          </Router>
+          </HashRouter>
         </Spin>
         )
     }
