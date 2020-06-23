@@ -23,8 +23,8 @@
     "static/js/10.1211547e.chunk.js": "/react-admin/static/js/10.1211547e.chunk.js",
     "static/js/10.1211547e.chunk.js.map": "/react-admin/static/js/10.1211547e.chunk.js.map",
     "main.css": "/react-admin/static/css/main.932e4bf0.chunk.css",
-    "main.js": "/react-admin/static/js/main.d6762f11.chunk.js",
-    "main.js.map": "/react-admin/static/js/main.d6762f11.chunk.js.map",
+    "main.js": "/react-admin/static/js/main.da5088e9.chunk.js",
+    "main.js.map": "/react-admin/static/js/main.da5088e9.chunk.js.map",
     "runtime-main.js": "/react-admin/static/js/runtime-main.e1170b4e.js",
     "runtime-main.js.map": "/react-admin/static/js/runtime-main.e1170b4e.js.map",
     "static/css/13.a2026422.chunk.css": "/react-admin/static/css/13.a2026422.chunk.css",
@@ -35,7 +35,7 @@
     "static/js/15.5c799046.chunk.js": "/react-admin/static/js/15.5c799046.chunk.js",
     "static/js/15.5c799046.chunk.js.map": "/react-admin/static/js/15.5c799046.chunk.js.map",
     "index.html": "/react-admin/index.html",
-    "precache-manifest.19cb564a754e811b16383e1688e6bf9e.js": "/react-admin/precache-manifest.19cb564a754e811b16383e1688e6bf9e.js",
+    "precache-manifest.b063f79966ccce487d47a295a227e0cc.js": "/react-admin/precache-manifest.b063f79966ccce487d47a295a227e0cc.js",
     "service-worker.js": "/react-admin/service-worker.js",
     "static/css/13.a2026422.chunk.css.map": "/react-admin/static/css/13.a2026422.chunk.css.map",
     "static/css/main.932e4bf0.chunk.css.map": "/react-admin/static/css/main.932e4bf0.chunk.css.map",
@@ -50,6 +50,6 @@
     "static/css/13.a2026422.chunk.css",
     "static/js/13.4fc4cd81.chunk.js",
     "static/css/main.932e4bf0.chunk.css",
-    "static/js/main.d6762f11.chunk.js"
+    "static/js/main.da5088e9.chunk.js"
   ]
 }
