@@ -18,18 +18,13 @@ export default class Home extends React.Component{
       pathname:'/'
   };
   componentWillMount() {
-    // console.log(fetch)
-    console.log(window.location)
-    console.log(window.location.hash.split("#"))
+    // 是否已登录,未登录跳转至login页面
+    if(!localStorage.getItem("isLogin")){
+      window.location.hash = "#/login"
+    }
     this.setState({
       pathname: window.location.hash && window.location.hash.split("#")[1]
     })
-
-    // window.location.pathname = localStorage.getItem("pathname")
-    // console.log(localStorage.getItem("pathname"))
-    // if(localStorage.getItem("pathname") != "/home"){
-    //   localStorage.setItem("pathname",window.location.pathname)
-    // }
   }
   componentDidMount(){
     // UNLISTEN变量用来接收解绑函数
