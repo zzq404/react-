@@ -20,7 +20,7 @@ export default class Home extends React.Component{
     // console.log(fetch)
     // console.log(window.location.pathname)
     this.setState({
-      pathname:window.location.pathname
+      pathname:window.location.hash
     })
 
     // window.location.pathname = localStorage.getItem("pathname")
@@ -67,7 +67,7 @@ export default class Home extends React.Component{
   }
   outLogin=()=>{
     localStorage.removeItem("isLogin")
-    window.location.pathname ="login"
+    window.location.hash = "#/login"
   }
   toggle = () => {
     this.setState({
@@ -82,7 +82,7 @@ export default class Home extends React.Component{
               <Header className="header">
                 <div className="logo">
                   <img onClick={this.toggle} className="logoImg" src={Logo} alt=""/>
-                  <span className="title">管理后台</span>
+                  <span className="title">瞎写的后台</span>
                 </div>
                 <div className="userInfo">
                   {/* <Avatar size="large" style={{backgroundColor: '#87d068'}} icon={ React.createElement(Icon['UserOutlined']) }/> */}
