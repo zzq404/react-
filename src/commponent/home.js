@@ -20,7 +20,7 @@ export default class Home extends React.Component{
     // console.log(fetch)
     // console.log(window.location.pathname)
     this.setState({
-      pathname:window.location.pathname
+      pathname:window.location.hash
     })
 
     // window.location.pathname = localStorage.getItem("pathname")

@@ -46,11 +46,13 @@ export default class App extends React.Component{
   }
   render(){
         return(
-          <Router>
-            {
+          <HashRouter>
+            <Route exact path="/login" component={Login}></Route>
+            <Route path="/" component={Home}></Route>
+            {/* {
               window.location.hash !== "#/login" && localStorage.getItem("isLogin") ? <Route path="/" component={Home}></Route> : <Route path="/login" component={Login}></Route>
-            }
-          </Router>
+            } */}
+          </HashRouter>
         )
     }
 }
