@@ -10,6 +10,7 @@ import Routers from '../routers'
 const { SubMenu } = Menu;
 const { Header, Sider, Content } = Layout;
 
+let UNLISTEN;
 export default class Home extends React.Component{
   state = {
       content:'',
@@ -18,9 +19,10 @@ export default class Home extends React.Component{
   };
   componentWillMount() {
     // console.log(fetch)
-    // console.log(window.location.pathname)
+    console.log(window.location)
+    console.log(window.location.hash.split("#"))
     this.setState({
-      pathname:window.location.hash
+      pathname: window.location.hash && window.location.hash.split("#")[1]
     })
 
     // window.location.pathname = localStorage.getItem("pathname")
@@ -28,6 +30,17 @@ export default class Home extends React.Component{
     // if(localStorage.getItem("pathname") != "/home"){
     //   localStorage.setItem("pathname",window.location.pathname)
     // }
+  }
+  componentDidMount(){
+    // UNLISTEN变量用来接收解绑函数
+    UNLISTEN = this.props.history.listen(route => {
+      this.setState({
+        pathname:route.pathname
+      })
+    });
+  }
+  componentWillUnmount(){
+    UNLISTEN && UNLISTEN(); // 执行解绑
   }
   onChange = (e)=>{
     this.setState({
@@ -39,6 +52,7 @@ export default class Home extends React.Component{
     //   console.log(this.state.content)
     // })
   }
+  // 渲染侧边栏
   fillterSidebar=()=>{
     return Routers.map((item,index)=>{
       if(item.show){
@@ -60,6 +74,7 @@ export default class Home extends React.Component{
       }
     })
   }
+  // 判断当前侧边栏下的子级 是否显示
   isDrop=(children)=>{
     return children.some((ele)=>{
       return ele.show == true
@@ -98,7 +113,8 @@ export default class Home extends React.Component{
                 <Sider width={210} collapsed={this.state.collapsed} onCollapse={this.onCollapse} className="site-layout-background">
                   <Menu
                     mode="inline"
-                    defaultSelectedKeys={[`${this.state.pathname}`]}
+                    defaultSelectedKeys={[this.state.pathname]}
+                    selectedKeys={[this.state.pathname]}
                     style={{ height: '100%', borderRight: 0 }}
                   >
                     {this.fillterSidebar()}
