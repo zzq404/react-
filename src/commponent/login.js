@@ -21,7 +21,7 @@ export default class Login extends React.Component{
         this.setState({loading:true})
         localStorage.setItem("isLogin",true) // 已登录,计入缓存 下次进入不需要登录
         // 查询缓存中是否计入初次进入路径
-        localStorage.getItem("pathname") ? window.location.pathname = localStorage.getItem("pathname") : window.location.pathname ="/"
+        localStorage.getItem("pathname") ? window.location.hash = localStorage.getItem("pathname") : window.location.hash ="#/"
       }else{
         if(!this.state.basic.username){
           message.warning('请输入您的用户名哦~');
@@ -50,7 +50,7 @@ export default class Login extends React.Component{
         return(
             <div id="login">
                 <div className="login-form">
-                    <p className="login-form-title">壹哆哆管理后台</p>
+                    <p className="login-form-title">瞎写的后台</p>
                     <Form
                       className="login-form-box"
                       name="basic"
