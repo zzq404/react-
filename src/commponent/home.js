@@ -1,5 +1,5 @@
 import React,{ Suspense } from 'react';
-import {BrowserRouter as Router , Route,Link,HashRouter} from 'react-router-dom';
+import {Route,Link,HashRouter} from 'react-router-dom';
 import { Layout, Menu, Breadcrumb,Dropdown,Spin } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 import './home.css'
@@ -20,7 +20,7 @@ export default class Home extends React.Component{
   componentWillMount() {
     // 是否已登录,未登录跳转至login页面
     if(!localStorage.getItem("isLogin")){
-      window.location.hash = "#/login"
+        window.location.hash = "#/login"
     }
     this.setState({
       pathname: window.location.hash && window.location.hash.split("#")[1]
@@ -100,7 +100,7 @@ export default class Home extends React.Component{
                   overlay={<Menu>
                             <Menu.Item icon={<ExportOutlined />} onClick={this.outLogin} style={{color:'#f5222d'}}>退出登录</Menu.Item>
                           </Menu>} placement="bottomCenter">
-                    <span className="ant-dropdown-link">郑铁柱 { React.createElement(Icon['DownOutlined'])}</span>
+                    <span className="ant-dropdown-link">{JSON.parse(localStorage.getItem('basic')).username} { React.createElement(Icon['DownOutlined'])}</span>
                   </Dropdown>
                 </div>
               </Header>

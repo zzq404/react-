@@ -6,20 +6,25 @@ import './login.css'
   
 export default class Login extends React.Component{
     state = {
-        content:'',
         collapsed: false,
         basic:{},
         loading:false,
         isLogin:false
     };
     componentWillMount(){
-        console.log("登录页面 即将渲染")
+      console.log("登录页渲染")
+      
+      
+    }
+    componentDidMount(){
+      let basic= (localStorage.getItem('basic') && JSON.parse(localStorage.getItem('basic'))) || false
+      if(basic.remember){
+        this.refs.form.setFieldsValue(basic)
+      }
     }
     loginSubmit=()=>{
       console.log(this.state.isLogin)
       if(this.state.isLogin){
-        this.setState({loading:true})
-        localStorage.setItem("isLogin",true) // 已登录,计入缓存 下次进入不需要登录
         // 查询缓存中是否计入初次进入路径
         localStorage.getItem("pathname") ? window.location.hash = localStorage.getItem("pathname") : window.location.hash ="#/"
       }else{
@@ -35,6 +40,14 @@ export default class Login extends React.Component{
     onFinish = values => {
       console.log('Success:', values);
       this.setState({basic:values,isLogin:true})
+      localStorage.setItem("isLogin",true) // 已登录,计入缓存 下次进入不需要登录
+      localStorage.setItem("loginTime",new Date().getTime()) // 已登录,计入缓存 下次进入不需要登录
+      let info={
+        username:this.state.basic.username,
+        password:this.state.basic.password,
+        remember:this.state.basic.remember
+      }
+      localStorage.setItem("basic",JSON.stringify(info)) // 已登录,计入缓存 下次进入不需要登录
       this.loginSubmit()
     }
     onFinishFailed = errorInfo => {
@@ -45,6 +58,7 @@ export default class Login extends React.Component{
     };
     getCode=()=>{
       console.log("获取验证码")
+      message.success('验证码可以随便输哦~');
     }
     render(){
         return(
@@ -52,6 +66,7 @@ export default class Login extends React.Component{
                 <div className="login-form">
                     <p className="login-form-title">瞎写的后台</p>
                     <Form
+                      ref='form'
                       className="login-form-box"
                       name="basic"
                       initialValues={{ remember: true }}
@@ -62,7 +77,7 @@ export default class Login extends React.Component{
                         name="username"
                         rules={[{ required: true, message: '请输入您的用户名' }]}
                       >
-                        <Input placeholder="请输入您的用户名" addonBefore={<UserOutlined />}/>
+                        <Input placeholder="请输入您的用户名" allowClear addonBefore={<UserOutlined />}/>
                       </Form.Item>
 
                       <Form.Item
