@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-admin"]=this["webpackJsonpreact-admin"]||[]).push([[13],{209:function(n,t,r){"use strict";r.r(t),r.d(t,"timeFormat",(function(){return o}));var e=r(514);function o(n){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"YYYY-MM-DD HH:mm:ss";return n?e(Number(n)).format(t):null}console.log(e)}}]);
+//# sourceMappingURL=13.8913628b.chunk.js.map
