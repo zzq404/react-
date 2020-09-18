@@ -1,0 +1,53 @@
+#body{
+  height: 100%;
+}
+.header{
+  padding: 0 44px 0 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+.logo .logoImg{
+  width:45px;
+  height:45px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: .3s;
+}
+.logo .logoImg:hover{
+  transform: scale(1.4);
+}
+.logo .title{
+  font-size: 22px;
+  color: #fff;
+}
+.ant-layout-sider{
+  background: #fff;
+}
+.userInfo{
+  
+}
+
+.site-layout-background {
+  background: #fff;
+}
+.ant-dropdown-link{
+  margin-left: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+.ant-spin-nested-loading,.ant-spin-container{
+  height: 100%;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
